@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= "#{@page_title} | " if @page_title %>Private Gem Repository</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="wrap">
+
+    <header id="header">
+      <div class="container">
+          <nav id="primary-navigation" class="navbar">
+            <div class="navbar-inner">
+                <%= link_to 'Private Gem Repository', :root, class: 'brand' %>
+                <ul class="nav pull-right">
+                  <li><%= link_to 'Home', :root %></li>
+                </ul>
+            </div>
+          </nav>
+      </div>
+    </header>
+
+
+  <%= yield :page_title %>
+
+  <div class="container">
+      <section id="content">
+        <%= yield %>
+      </section>
+    <div id="push"></div>
+  </div>
+
+</div>
+
+
+<footer id="footer">
+  <div class="container">
+    <p>
+        &copy; 2013 Christopher Thornton
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

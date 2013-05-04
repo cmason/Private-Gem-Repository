@@ -1,0 +1,13 @@
+<section id="page-title">
+  <div class="container">
+    <div class="row">
+      <div class="span8">
+        <h1><%= title %></h1>
+        <% unless subtext.blank? %><p class="subtext"><%= subtext %></p><% end %>
+      </div>
+      <div class="span4">
+        <%= capture(&content) unless content.blank? %>
+      </div>
+    </div>
+  </div>
+</section>
