@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
 
   ## DEVISE STUFF
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable,
+  devise :database_authenticatable, :rememberable, :trackable, :validatable,
          :lockable, :timeoutable
+
+  # Don't want to let random users register: :registerable, :recoverable,
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
 

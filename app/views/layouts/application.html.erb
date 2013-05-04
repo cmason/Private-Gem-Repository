@@ -16,6 +16,14 @@
                 <%= link_to 'Private Gem Repository', :root, class: 'brand' %>
                 <ul class="nav pull-right">
                   <li><%= link_to 'Home', :root %></li>
+                  <li class="divider-vertical"></li>
+                  <li>
+                    <% if user_signed_in? %>
+                        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                    <% else %>
+                        <%= link_to 'Login', new_user_session_path %>
+                    <% end %>
+                  </li>
                 </ul>
             </div>
           </nav>
@@ -24,6 +32,18 @@
 
 
   <%= yield :page_title %>
+
+  <% if flash.any? %>
+    <section id="flashes" class="container">
+    <% flash.each do |level,text| %>
+      <% level = :success if level == :notice %>
+      <div class='alert alert-<%= level %>'>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= text %>
+      </div>
+    <% end %>
+    </section>
+  <% end %>
 
   <div class="container">
       <section id="content">
